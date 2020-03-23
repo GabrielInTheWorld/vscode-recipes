@@ -1,17 +1,20 @@
 {
-  "name": "server",
-  "version": "0.0.0",
-  "scripts": {
-    "postinstall": "tsc -p ./src",
-    "watch": "tsc -w -p ./src",
-    "debug": "nodemon --legacy-watch --watch ./dist --inspect=0.0.0.0:5858 --nolazy ./dist/index.js",
-    "docker-debug": "docker-compose up",
-    "start": "node ./dist/index.js"
-  },
-  "devDependencies": {
-    "@types/node": "^6.0.50",
-    "typescript": "^2.3.2",
-    "nodemon": "^1.11.0"
-  },
-  "main": "./dist/index.js"
+	"name": "server",
+	"version": "0.0.0",
+	"scripts": {
+		"watch": "tsc -w",
+		"debug": "nodemon --watch ./src --inspect=5858 --nolazy ./src/index.ts",
+		"dev": "nodemon --config \"./nodemon.json\"",
+		"docker-debug": "docker-compose up",
+		"start": "nodemon",
+		"build": "tsc",
+		"checkUpdate": "npm update && npm update --dev"
+	},
+	"devDependencies": {
+		"@types/node": "^6.14.9",
+		"nodemon": "^1.19.4",
+		"ts-node": "^8.8.1",
+		"typescript": "^2.9.2"
+	},
+	"main": "./dist/index.js"
 }
